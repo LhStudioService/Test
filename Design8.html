@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Design 1 – LH Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      list-style: none;
+      margin: 0;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+    nav li {
+      margin: 0 0.5rem;
+    }
+    nav li.logo {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #970b0b;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .hero {
+      background-image: url('images/LH Studio Logo No Box.png');
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      gap: 3rem;
+      flex-grow: 1;
+    }
+    .description {
+      flex: 1 1 500px;
+      max-width: 600px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      color: #333;
+    }
+    .description h2 {
+      margin-top: 0;
+      font-weight: 700;
+      color: #970b0b;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .description p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .design-gallery {
+      flex: 1 1 500px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .design-gallery-item img {
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+      border: 3px solid #970b0b;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .design-gallery-item img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .click-caption {
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+      user-select: none;
+      text-align: center;
+    }
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(255, 255, 255, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      z-index: 5000;
+      overflow: hidden;
+    }
+    #modal.open {
+      display: flex;
+    }
+    .modal-content {
+      display: flex;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      overflow: hidden;
+      outline: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    .modal-main-image {
+      max-width: 900px;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 12px;
+      user-select: none;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .modal-description {
+      max-width: 900px;
+      font-size: 1rem;
+      color: #444;
+      text-align: center;
+      margin-bottom: 1rem;
+      user-select: none;
+      min-height: 3em;
+    }
+    .modal-sidebar {
+      width: 100%;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+      box-sizing: border-box;
+      user-select: none;
+      justify-content: center;
+    }
+    .modal-sidebar img {
+      height: 70px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 3px solid transparent;
+      object-fit: cover;
+      transition: border-color 0.3s ease;
+      flex-shrink: 0;
+      width: auto;
+    }
+    .modal-sidebar img.selected {
+      border-color: #970b0b;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #970b0b;
+      background: none;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      z-index: 6000;
+      transition: color 0.3s ease;
+    }
+    .modal-close:hover {
+      color: #5a0404;
+    }
+    footer {
+      background-color: #D3D3D3;
+      color: #000;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 1000px) {
+      .content-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .description, .design-gallery {
+        max-width: 90vw;
+        flex: 1 1 100%;
+      }
+      .modal-content {
+        max-height: 80vh;
+        padding: 0.5rem;
+      }
+      .modal-main-image {
+        max-height: 50vh;
+        margin-bottom: 0.5rem;
+      }
+      .modal-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .modal-sidebar {
+        justify-content: flex-start;
+      }
+      .modal-sidebar img {
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="LH%20Studio.html">Home</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+      <li class="logo"><img src="images/Words%20LH%20Studio.png" alt="LH Studio Logo" /></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Design 1 – Creative Process</h1>
+      <p>Insight into how this design was crafted and brought to life.</p>
+    </div>
+  </section>
+
+  <main class="content-container">
+    <section class="description">
+      <h2>Design 1 Process</h2>
+      <p>This design was inspired by contemporary minimalism, focusing on clean lines, vibrant contrasts, and strong visual hierarchy. The process involved iterative sketching, color testing, and digital refinement to achieve the final polished look that communicates clarity and impact.</p>
+    </section>
+
+    <section class="design-gallery">
+      <div class="design-gallery-item">
+        <img src="images/Twitch%20Design-01.png" alt="Design 1 Main Image" id="mainImage" />
+      </div>
+      <div class="click-caption">Click the image to enlarge and view more</div>
+    </section>
+  </main>
+
+  <footer>
+    LH Studio — All rights reserved
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle" tabindex="-1">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <div class="modal-content">
+      <img src="images/Design1Main.jpg" alt="Design 1 Main Image" class="modal-main-image" id="modalMainImage" />
+      <div class="modal-description" id="modalDescription">This is the main view of Design 1 highlighting the core elements.</div>
+      <div class="modal-sidebar" id="modalSidebar">
+        <img src="images/Twitch%20Design-01.png" alt="Design 1 Main Image" class="selected" data-description="This is the main view of Design 1 highlighting the core elements." />
+        <img src="images/Twitch%20Design%20Other%20side-01.png" alt="Design 1 Alternative 1" data-description="Alternate angle showcasing typography details." />
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const mainImage = document.getElementById('mainImage');
+    const modalMainImage = document.getElementById('modalMainImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalSidebar = document.getElementById('modalSidebar');
+    const modalClose = modal.querySelector('.modal-close');
+
+    mainImage.addEventListener('click', () => {
+      openModal(mainImage.src, mainImage.alt, "This is the main view of Design 1 highlighting the core elements.");
+    });
+
+    modalClose.addEventListener('click', closeModal);
+
+    modalSidebar.addEventListener('click', (e) => {
+      if (e.target.tagName === 'IMG') {
+        updateModalImage(e.target);
+      }
+    });
+
+    function openModal(src, alt, description) {
+      modal.classList.add('open');
+      modalMainImage.src = src;
+      modalMainImage.alt = alt;
+      modalDescription.textContent = description;
+
+      Array.from(modalSidebar.children).forEach(img => {
+        img.classList.toggle('selected', img.src === src);
+      });
+
+      modal.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function updateModalImage(imgElement) {
+      modalMainImage.src = imgElement.src;
+      modalMainImage.alt = imgElement.alt;
+      modalDescription.textContent = imgElement.getAttribute('data-description');
+
+      Array.from(modalSidebar.children).forEach(img => img.classList.remove('selected'));
+      imgElement.classList.add('selected');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>

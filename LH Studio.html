@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LH Studio – Graphic Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Ink Free';
+      src: url('fonts/InkFree.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      list-style: none;
+      margin: 0;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    nav li {
+      margin: 0 0.5rem;
+    }
+
+    nav li.logo {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #970b0b;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .hero {
+      background-image: url('images/LH Studio Logo No Box.png');
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-family: 'Ink Free', cursive, sans-serif;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+
+    .about-box {
+      background-image: url('images/Info Background.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1rem;
+      flex: 1 1 300px;
+      max-width: 500px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .about-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 0;
+      border-radius: 16px;
+    }
+
+    .about-box h3, .about-box p, .about-box ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-box h3 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Ink Free', cursive, sans-serif;
+    }
+
+    .about-box p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Services list grid layout */
+    .service-list-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4rem;
+      margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    .service-list-container ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      text-align: left;
+      margin: 0;
+    }
+
+    .gallery-section {
+      padding: 4rem 4rem;
+      background-color: #f9f9f9;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 500px);
+      gap: 2rem;
+      max-width: 1606px;
+      margin: 0 auto;
+      grid-auto-rows: 250px;
+      grid-auto-flow: row;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      width: 500px;
+      height: 250px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item p {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #D3D3D3;
+      color: #000000;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 1600px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 100%;
+        grid-auto-rows: 180px;
+        padding: 0 1rem;
+      }
+
+      .gallery-item {
+        width: 100% !important;
+        height: 180px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .about {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: 160px;
+      }
+
+      .gallery-item {
+        height: 160px !important;
+      }
+
+      .gallery-section {
+        padding: 4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="LH%20Studio.html">Home</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+      <li class="logo"><img src="images/Words%20LH%20Studio.png" alt="LH Studio Logo" /></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to LH Studio</h1>
+      <p>Craft stunning branding, web, and print designs that tell your story and captivate your audience</p>
+      <p>Let’s create something amazing together</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-box">
+      <h3>Our Services</h3>
+      <div class="service-list-container">
+        <ul>
+          <li>Business Card Design</li>
+          <li>Custom Creative Projects</li>
+          <li>Logo Design</li>
+        </ul>
+        <ul>
+          <li>Print & Marketing Materials</li>
+          <li>Branding & Identity</li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="about-box">
+      <h3>About LH Studio</h3>
+      <p>We’re all about helping small businesses in Des Moines and beyond, look great with smart, simple design. Whether it’s logos, business cards, letterheads, or posters, we’ve got you covered. Our goal is to make your brand stand out — without making it complicated.</p>
+    </div>
+    <div class="about-box">
+      <h3>Why LH Studio?</h3>
+      <p>We’re proud to support Des Moines local businesses by offering high-quality, budget-friendly design and print services that help our community thrive. When you work with LH Studio, you’re choosing creativity that’s accessible and committed to uplifting our community.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="gallery">
+      <div class="gallery-item">
+        <a href="Design1.html">
+          <img src="images/Beer%20Logo%20Web.jpg" alt="Design 1" />
+          <p>Beer Can Design</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design2.html">
+          <img src="images/ATO%20Compsite%20250x500-01.png" alt="Design 2" />
+          <p>Fraternity Composite</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design3.html">
+          <img src="images/LH%20Studio%20BC%20250x500-01.png" alt="Design 3" />
+          <p>LH Studio Business Card</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design4.html">
+          <img src="images/Valorant%20Web-01.jpg" alt="Design 4" />
+          <p>Esports Roster Announcement</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design5.html">
+          <img src="images/BillBoard%20Mock%20Up%20Web.jpg" alt="Design 5" />
+          <p>Intimacy Directors Association Ad Run</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design6.html">
+          <img src="images/Card%20Design%20Mock%20Up%20250x500-01.png" alt="Design 6" />
+          <p>Playing Card Design</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design7.html">
+          <img src="images/Edsvisions%20Logo%20Web-01.jpg" alt="Design 7" />
+          <p>Edsvisions</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design8.html">
+          <img src="images/Twitch%20Web-01.jpg" alt="Design 8" />
+          <p>Stream Layout</p>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="Design9.html">
+          <img src="images/Walker%20Detailing%20Web-01.jpg" alt="Design 9" />
+          <p>Walker Interior Detailing</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>2025 LH Studio LLC</p>
+  </footer>
+
+</body>
+</html>

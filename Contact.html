@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LH Studio – Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      list-style: none;
+      margin: 0;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    nav li {
+      margin: 0 0.5rem;
+    }
+
+    nav li.logo {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #970b0b;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('images/LH Studio Logo No Box.png');
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      background-color: #fff;
+      max-width: 1200px;
+      margin: 3rem auto 5rem;
+      padding: 4rem 5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.25rem;
+      margin-bottom: 2.5rem;
+      color: #222;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .contact-section {
+        margin: 2rem 1rem 4rem;
+        padding: 2rem 2rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #D3D3D3;
+      color: #000000;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="LH%20Studio.html">Home</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+      <li class="logo"><img src="images/Words%20LH%20Studio.png" alt="LH Studio Logo" /></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear about your project. Get in touch!</p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <h2>Contact Form</h2>
+    <!-- HoneyBook embed -->
+    <div class="hb-p-682a1ddb8b38660007335422-1"></div>
+    <img height="1" width="1" style="display:none" src="https://www.honeybook.com/p.png?pid=682a1ddb8b38660007335422" />
+    <script>
+      (function(h,b,s,n,i,p,e,t) {
+        h._HB_ = h._HB_ || {};h._HB_.pid = i;
+        t = b.createElement(s); t.type = "text/javascript"; t.async = true; t.src = n;
+        e = b.getElementsByTagName(s)[0]; e.parentNode.insertBefore(t, e);
+      })(window, document, "script", "https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js", "682a1ddb8b38660007335422");
+    </script>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>2025 LH Studio LLC</p>
+  </footer>
+
+</body>
+</html>

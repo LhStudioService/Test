@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>LH Studio.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+LH Studio.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot; </span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot;</span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;title&gt;</span><span class="s1">My Graphic Design Business</span><span class="s0">&lt;/title&gt;</span>
+  <span class="s0">&lt;style&gt;</span>
+    <span class="s0">body </span><span class="s1">{</span>
+      <span class="s2">margin</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s2">font-family</span><span class="s1">: </span><span class="s0">Arial</span><span class="s1">, </span><span class="s3">sans-serif</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">/* Navigation bar with fixed height and background image */</span>
+    <span class="s0">nav </span><span class="s1">{</span>
+      <span class="s2">background-image</span><span class="s1">: </span><span class="s0">url</span><span class="s1">(</span><span class="s3">'images/Top Banner No Cut Outs.jpg'</span><span class="s1">);</span>
+      <span class="s2">background-size</span><span class="s1">: </span><span class="s3">cover</span><span class="s1">;</span>
+      <span class="s2">background-position</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
+      <span class="s2">height</span><span class="s1">: </span><span class="s4">80</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">position</span><span class="s1">: </span><span class="s3">sticky</span><span class="s1">;</span>
+      <span class="s2">top</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s2">z-index</span><span class="s1">: </span><span class="s4">10</span><span class="s1">;</span>
+      <span class="s2">position</span><span class="s1">: </span><span class="s3">relative</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">/* Navigation links aligned left */</span>
+    <span class="s0">nav ul </span><span class="s1">{</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">flex</span><span class="s1">;</span>
+      <span class="s2">justify-content</span><span class="s1">: </span><span class="s3">flex-start</span><span class="s1">;</span>
+      <span class="s2">list-style</span><span class="s1">: </span><span class="s3">none</span><span class="s1">;</span>
+      <span class="s2">margin</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s2">padding</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px </span><span class="s4">0 0 40</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">position</span><span class="s1">: </span><span class="s3">absolute</span><span class="s1">;</span>
+      <span class="s2">top</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s2">left</span><span class="s1">: </span><span class="s4">0</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">nav li </span><span class="s1">{</span>
+      <span class="s2">margin-right</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">nav a </span><span class="s1">{</span>
+      <span class="s2">text-decoration</span><span class="s1">: </span><span class="s3">none</span><span class="s1">;</span>
+      <span class="s2">color</span><span class="s1">: </span><span class="s3">black</span><span class="s1">;</span>
+      <span class="s2">font-size</span><span class="s1">: </span><span class="s4">18</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">background-color</span><span class="s1">: </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">0.90</span><span class="s1">); </span><span class="s5">/* 60% transparent white */</span>
+      <span class="s2">padding</span><span class="s1">: </span><span class="s4">6</span><span class="s3">px </span><span class="s4">14</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">border-radius</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">; </span><span class="s5">/* Curved edges */</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">inline-block</span><span class="s1">;</span>
+      <span class="s2">transition</span><span class="s1">: </span><span class="s3">background-color </span><span class="s4">0.3</span><span class="s3">s ease</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">nav a</span><span class="s1">:</span><span class="s0">hover </span><span class="s1">{</span>
+      <span class="s2">background-color</span><span class="s1">: </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">0.8</span><span class="s1">);</span>
+      <span class="s2">text-decoration</span><span class="s1">: </span><span class="s3">underline</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">/* Logo on top right with NO background */</span>
+    <span class="s1">.</span><span class="s0">logo </span><span class="s1">{</span>
+      <span class="s2">position</span><span class="s1">: </span><span class="s3">absolute</span><span class="s1">;</span>
+      <span class="s2">top</span><span class="s1">: </span><span class="s4">18</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">right</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">height</span><span class="s1">: </span><span class="s4">50</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">flex</span><span class="s1">;</span>
+      <span class="s2">align-items</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">.</span><span class="s0">logo img </span><span class="s1">{</span>
+      <span class="s2">max-height</span><span class="s1">: </span><span class="s4">120</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">width</span><span class="s1">: </span><span class="s3">auto</span><span class="s1">;</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">block</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">/* Centered image in nav with transparent white background and curved edges */</span>
+    <span class="s1">.</span><span class="s0">center-image </span><span class="s1">{</span>
+      <span class="s2">position</span><span class="s1">: </span><span class="s3">absolute</span><span class="s1">;</span>
+      <span class="s2">top</span><span class="s1">: </span><span class="s4">50</span><span class="s1">%;</span>
+      <span class="s2">left</span><span class="s1">: </span><span class="s4">50</span><span class="s1">%;</span>
+      <span class="s2">transform</span><span class="s1">: </span><span class="s0">translate</span><span class="s1">(-</span><span class="s4">50</span><span class="s1">%, -</span><span class="s4">50</span><span class="s1">%);</span>
+      <span class="s2">height</span><span class="s1">: </span><span class="s4">60</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">flex</span><span class="s1">;</span>
+      <span class="s2">align-items</span><span class="s1">: </span><span class="s3">center</span><span class="s1">;</span>
+      <span class="s2">background-color</span><span class="s1">: </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">255</span><span class="s1">, </span><span class="s4">0.9</span><span class="s1">); </span><span class="s5">/* 60% transparent white */</span>
+      <span class="s2">padding</span><span class="s1">: </span><span class="s4">4</span><span class="s3">px </span><span class="s4">8</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">border-radius</span><span class="s1">: </span><span class="s4">12</span><span class="s3">px</span><span class="s1">; </span><span class="s5">/* Curved edges */</span>
+      <span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 2</span><span class="s3">px </span><span class="s4">6</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">, </span><span class="s4">0</span><span class="s1">, </span><span class="s4">0</span><span class="s1">, </span><span class="s4">0.1</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">.</span><span class="s0">center-image img </span><span class="s1">{</span>
+      <span class="s2">height</span><span class="s1">: </span><span class="s4">100</span><span class="s1">%;</span>
+      <span class="s2">width</span><span class="s1">: </span><span class="s3">auto</span><span class="s1">;</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">block</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">/* Image gallery grid */</span>
+    <span class="s1">.</span><span class="s0">gallery </span><span class="s1">{</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">grid</span><span class="s1">;</span>
+      <span class="s2">grid-template-columns</span><span class="s1">: </span><span class="s0">repeat</span><span class="s1">(</span><span class="s4">2</span><span class="s1">, </span><span class="s4">1</span><span class="s3">fr</span><span class="s1">);</span>
+      <span class="s2">grid-template-rows</span><span class="s1">: </span><span class="s0">repeat</span><span class="s1">(</span><span class="s4">6</span><span class="s1">, </span><span class="s4">250</span><span class="s3">px</span><span class="s1">);</span>
+      <span class="s2">gap</span><span class="s1">: </span><span class="s4">40</span><span class="s3">px </span><span class="s4">15</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">padding-left</span><span class="s1">: </span><span class="s4">40</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">width</span><span class="s1">: </span><span class="s4">50</span><span class="s3">vw</span><span class="s1">;</span>
+      <span class="s2">max-width</span><span class="s1">: </span><span class="s4">1000</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">margin-top</span><span class="s1">: </span><span class="s4">20</span><span class="s3">px</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">.</span><span class="s0">gallery img </span><span class="s1">{</span>
+      <span class="s2">width</span><span class="s1">: </span><span class="s4">100</span><span class="s1">%;</span>
+      <span class="s2">height</span><span class="s1">: </span><span class="s4">100</span><span class="s1">%;</span>
+      <span class="s2">object-fit</span><span class="s1">: </span><span class="s3">cover</span><span class="s1">;</span>
+      <span class="s2">border-radius</span><span class="s1">: </span><span class="s4">8</span><span class="s3">px</span><span class="s1">;</span>
+      <span class="s2">box-shadow</span><span class="s1">: </span><span class="s4">0 4</span><span class="s3">px </span><span class="s4">8</span><span class="s3">px </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0</span><span class="s1">,</span><span class="s4">0.1</span><span class="s1">);</span>
+      <span class="s2">transition</span><span class="s1">: </span><span class="s0">transform </span><span class="s4">0.3</span><span class="s3">s ease</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">.</span><span class="s0">gallery img</span><span class="s1">:</span><span class="s0">hover </span><span class="s1">{</span>
+      <span class="s2">transform</span><span class="s1">: </span><span class="s0">scale</span><span class="s1">(</span><span class="s4">1.05</span><span class="s1">);</span>
+    <span class="s1">}</span>
+  <span class="s0">&lt;/style&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+
+  <span class="s5">&lt;!-- Top Banner with Logo, Center Image, and Navigation --&gt;</span>
+  <span class="s0">&lt;nav&gt;</span>
+    <span class="s5">&lt;!-- Navigation Links --&gt;</span>
+    <span class="s0">&lt;ul&gt;</span>
+      <span class="s0">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s0">&gt;</span><span class="s1">Home</span><span class="s0">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="s0">&lt;li&gt;&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#contact&quot;</span><span class="s0">&gt;</span><span class="s1">Contact Us</span><span class="s0">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="s0">&lt;/ul&gt;</span>
+
+    <span class="s5">&lt;!-- Center Image with Transparent White Background and Rounded Edges --&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;center-image&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/Words%20LH%20Studio.png&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Centered Image&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+
+    <span class="s5">&lt;!-- Logo in Top Right with NO background --&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;logo&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/LH%20Studio%20Logo%20White%20Background.png&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Company Logo&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/nav&gt;</span>
+
+  <span class="s5">&lt;!-- Image Gallery Section --&gt;</span>
+  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;gallery&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image1.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 1&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image2.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 2&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image3.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 3&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image4.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 4&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image5.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 5&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image6.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 6&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image7.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 7&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image8.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 8&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image9.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 9&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image10.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 10&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image11.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 11&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;images/image12.jpg&quot; </span><span class="s2">alt</span><span class="s3">=&quot;Design 12&quot; </span><span class="s0">/&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span>
+</pre>
+</body>
+</html>
