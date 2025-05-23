@@ -21,11 +21,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      padding: 0.5rem 1rem;
     }
     nav ul {
       display: flex;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0;
       list-style: none;
       margin: 0;
       justify-content: flex-start;
@@ -49,7 +50,9 @@
     }
     .logo img {
       height: 50px;
+      display: block;
     }
+
     .hero {
       background-image: url('images/LH Studio Logo No Box.png');
       background-repeat: no-repeat;
@@ -171,11 +174,12 @@
       align-items: center;
       padding: 1rem;
       box-sizing: border-box;
+      position: relative;
     }
     .modal-main-image {
       max-width: 900px;
       max-height: 70vh;
-      object-fit: contain;
+      object-fit: contain;  /* key: show entire image */
       border-radius: 12px;
       user-select: none;
       display: block;
@@ -237,6 +241,34 @@
       margin-top: auto;
       font-size: 0.9rem;
     }
+
+    /* Responsive nav for phone */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      nav li.logo {
+        order: -1;
+        margin: 0 0 0.5rem 0;
+        margin-left: 0;
+        margin-right: 0;
+        align-self: center;
+      }
+      nav li.logo img {
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+      }
+      nav li:not(.logo) {
+        margin: 0.25rem 0;
+      }
+      nav a {
+        font-size: 1.2rem;
+      }
+    }
+
     @media (max-width: 1000px) {
       .content-container {
         flex-direction: column;
@@ -293,83 +325,70 @@
 
     <section class="design-gallery">
       <div class="design-gallery-item">
-        <img src="images/Lukes%20Beer%20Label.jpg" alt="Design 1 Main Image" id="mainImage" />
+        <img
+          src="images/Lukes%20Beer%20Label.jpg"
+          alt="Design 1 Main Image"
+          id="mainImage"
+          style="cursor:pointer"
+          onclick="openPhoto(this.src, 1200, 900)" />
+        <div class="click-caption">Click image to view full size</div>
       </div>
-      <div class="click-caption">Click the image to enlarge and view more</div>
     </section>
   </main>
 
   <footer>
-    LH Studio — All rights reserved
+    © 2024 Luke Haugen. All rights reserved.
   </footer>
 
-  <!-- Modal -->
-  <div id="modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle" tabindex="-1">
-    <button class="modal-close" aria-label="Close modal">&times;</button>
-    <div class="modal-content">
-      <img src="images/Design1Main.jpg" alt="Design 1 Main Image" class="modal-main-image" id="modalMainImage" />
-      <div class="modal-description" id="modalDescription">This is the main view of Design 1 highlighting the core elements.</div>
-      <div class="modal-sidebar" id="modalSidebar">
-        <img src="images/Lukes%20Beer%20Label.jpg" alt="Design 1 Main Image" class="selected" data-description="Final Product" />
-        <img src="images/Beer%20Logo%20Gold.png" alt="Design 1 Alternative 1" data-description="Mid stage secondary design" />
-        <img src="images/Early%20Design%20Concept-01.png" alt="Design 1 Alternative 2" data-description="Early design concepts" />
-      </div>
-    </div>
-  </div>
-
   <script>
-    const modal = document.getElementById('modal');
-    const mainImage = document.getElementById('mainImage');
-    const modalMainImage = document.getElementById('modalMainImage');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalSidebar = document.getElementById('modalSidebar');
-    const modalClose = modal.querySelector('.modal-close');
+    // Open the photo in a new window sized to fit screen without cropping
+    function openPhoto(url, width, height) {
+      const maxWidth = window.innerWidth * 0.9;
+      const maxHeight = window.innerHeight * 0.9;
 
-    mainImage.addEventListener('click', () => {
-      openModal(mainImage.src, mainImage.alt, "Final Product");
-    });
+      let finalWidth = width;
+      let finalHeight = height;
 
-    modalClose.addEventListener('click', closeModal);
-
-    modalSidebar.addEventListener('click', (e) => {
-      if (e.target.tagName === 'IMG') {
-        updateModalImage(e.target);
+      if (width > maxWidth) {
+        finalWidth = maxWidth;
+        finalHeight = (height / width) * maxWidth;
       }
-    });
 
-    function openModal(src, alt, description) {
-      modal.classList.add('open');
-      modalMainImage.src = src;
-      modalMainImage.alt = alt;
-      modalDescription.textContent = description;
-
-      Array.from(modalSidebar.children).forEach(img => {
-        img.classList.toggle('selected', img.src === src);
-      });
-
-      modal.focus();
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function updateModalImage(imgElement) {
-      modalMainImage.src = imgElement.src;
-      modalMainImage.alt = imgElement.alt;
-      modalDescription.textContent = imgElement.getAttribute('data-description');
-
-      Array.from(modalSidebar.children).forEach(img => img.classList.remove('selected'));
-      imgElement.classList.add('selected');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) {
-        closeModal();
+      if (finalHeight > maxHeight) {
+        finalHeight = maxHeight;
+        finalWidth = (width / height) * maxHeight;
       }
-    });
+
+      const features = `width=${finalWidth},height=${finalHeight},scrollbars=yes,resizable=yes`;
+
+      const newWin = window.open('', '_blank', features);
+
+      newWin.document.write(`
+        <html>
+          <head>
+            <title>View Photo</title>
+            <style>
+              body, html {
+                margin: 0; padding: 0; height: 100%;
+                display: flex; justify-content: center; align-items: center;
+                background: #000;
+              }
+              img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                display: block;
+              }
+            </style>
+          </head>
+          <body>
+            <img src="${url}" alt="Photo" />
+          </body>
+        </html>
+      `);
+
+      newWin.document.close();
+    }
   </script>
 
 </body>

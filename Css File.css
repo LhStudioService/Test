@@ -1,3 +1,4 @@
+/* Slideshow styles */
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -16,6 +17,7 @@
     transition: opacity 1.5s ease-in-out;
 }
 
+/* Navigation bar base styles */
 nav {
     background-image: url('images/Top%20Banner%20No%20Cut%20Outs.jpg'); /* Update with correct path */
     background-size: cover;
@@ -27,6 +29,36 @@ nav {
     z-index: 10;
 }
 
+/* Nav list and items for horizontal layout */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* Center the links */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Nav list items */
+nav li {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo alignment on desktop */
+nav li.logo {
+    margin-right: auto;  /* Push logo to left */
+    padding-left: 1rem;
+}
+
+/* Logo image size */
+.logo img {
+    height: 50px;
+    max-height: 100%;
+}
+
+/* Nav link styles */
 nav a {
     text-decoration: none;
     color: black;
@@ -43,7 +75,7 @@ nav a:hover {
     text-decoration: none;          /* Keep underline off on hover */
 }
 
-
+/* Responsive styles for mobile */
 @media (max-width: 600px) {
   nav ul {
     flex-wrap: wrap;
@@ -52,6 +84,7 @@ nav a:hover {
     padding: 1rem;
   }
 
+  /* Logo on top, centered */
   nav li.logo {
     margin-left: 0;
     margin-right: 0;
@@ -60,9 +93,15 @@ nav a:hover {
     text-align: center;
   }
 
+  /* Smaller logo on mobile */
   .logo img {
-    height: 40px; /* Slightly smaller on mobile */
     max-width: 90vw;
     height: auto;
+    height: 40px; /* Slightly smaller */
   }
 }
+
+
+
+
+
