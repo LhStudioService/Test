@@ -166,7 +166,6 @@
       margin-right: auto;
     }
 
-
     .service-list-container ul {
       list-style-type: disc;
       padding-left: 1.5rem;
@@ -248,6 +247,7 @@
     }
 
     @media (max-width: 768px) {
+      /* Hero text smaller on mobile */
       .hero h1 {
         font-size: 2rem;
       }
@@ -268,6 +268,28 @@
 
       .gallery-section {
         padding: 4rem 1rem;
+      }
+
+      /* NAVIGATION MOBILE STYLE */
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 0.5rem;
+      }
+
+      nav li.logo {
+        margin: 0;
+        order: 2;
+      }
+
+      nav li:not(.logo) {
+        margin: 0.5rem 0;
+        order: 1;
+      }
+
+      nav ul {
+        justify-content: center;
       }
     }
   </style>
@@ -305,7 +327,6 @@
         <ul>
           <li>Print & Marketing Materials</li>
           <li>Branding & Identity</li>
-
         </ul>
       </div>
     </div>
