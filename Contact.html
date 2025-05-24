@@ -120,9 +120,40 @@
 
     /* Responsive */
     @media (max-width: 600px) {
+      /* Contact form adjustments */
       .contact-section {
         margin: 2rem 1rem 4rem;
         padding: 2rem 2rem;
+      }
+
+      /* Navigation stacked vertically */
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 1rem;
+      }
+
+      nav li.logo {
+        order: -1; /* Move logo to top */
+        margin: 0 0 0.5rem 0;
+        margin-left: 0;
+        margin-right: 0;
+        align-self: center;
+      }
+
+      nav li.logo img {
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      nav li:not(.logo) {
+        margin: 0.25rem 0;
+      }
+
+      nav a {
+        font-size: 1.2rem;
       }
     }
 

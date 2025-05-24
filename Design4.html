@@ -21,11 +21,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      padding: 0.5rem 1rem;
     }
     nav ul {
       display: flex;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0;
       list-style: none;
       margin: 0;
       justify-content: flex-start;
@@ -49,7 +50,9 @@
     }
     .logo img {
       height: 50px;
+      display: block;
     }
+
     .hero {
       background-image: url('images/LH Studio Logo No Box.png');
       background-repeat: no-repeat;
@@ -119,7 +122,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1.5rem;
     }
     .design-gallery-item img {
       width: 100%;
@@ -128,107 +131,13 @@
       border: 3px solid #970b0b;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .design-gallery-item img:hover {
       transform: scale(1.03);
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
-    .click-caption {
-      font-size: 0.9rem;
-      color: #555;
-      font-style: italic;
-      user-select: none;
-      text-align: center;
-    }
-    #modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(255, 255, 255, 0.95);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
-      z-index: 5000;
-      overflow: hidden;
-    }
-    #modal.open {
-      display: flex;
-    }
-    .modal-content {
-      display: flex;
-      max-width: 90vw;
-      max-height: 90vh;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      overflow: hidden;
-      outline: none;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-    .modal-main-image {
-      max-width: 900px;
-      max-height: 70vh;
-      object-fit: contain;
-      border-radius: 12px;
-      user-select: none;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-    .modal-description {
-      max-width: 900px;
-      font-size: 1rem;
-      color: #444;
-      text-align: center;
-      margin-bottom: 1rem;
-      user-select: none;
-      min-height: 3em;
-    }
-    .modal-sidebar {
-      width: 100%;
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding: 0.5rem 0;
-      box-sizing: border-box;
-      user-select: none;
-      justify-content: center;
-    }
-    .modal-sidebar img {
-      height: 70px;
-      cursor: pointer;
-      border-radius: 8px;
-      border: 3px solid transparent;
-      object-fit: cover;
-      transition: border-color 0.3s ease;
-      flex-shrink: 0;
-      width: auto;
-    }
-    .modal-sidebar img.selected {
-      border-color: #970b0b;
-    }
-    .modal-close {
-      position: absolute;
-      top: 20px; right: 30px;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #970b0b;
-      background: none;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-      z-index: 6000;
-      transition: color 0.3s ease;
-    }
-    .modal-close:hover {
-      color: #5a0404;
-    }
+
     footer {
       background-color: #D3D3D3;
       color: #000;
@@ -237,6 +146,33 @@
       margin-top: auto;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      nav li.logo {
+        order: -1;
+        margin: 0 0 0.5rem 0;
+        margin-left: 0;
+        margin-right: 0;
+        align-self: center;
+      }
+      nav li.logo img {
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+      }
+      nav li:not(.logo) {
+        margin: 0.25rem 0;
+      }
+      nav a {
+        font-size: 1.2rem;
+      }
+    }
+
     @media (max-width: 1000px) {
       .content-container {
         flex-direction: column;
@@ -246,132 +182,55 @@
         max-width: 90vw;
         flex: 1 1 100%;
       }
-      .modal-content {
-        max-height: 80vh;
-        padding: 0.5rem;
-      }
-      .modal-main-image {
-        max-height: 50vh;
-        margin-bottom: 0.5rem;
-      }
-      .modal-description {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-      .modal-sidebar {
-        justify-content: flex-start;
-      }
-      .modal-sidebar img {
-        height: 60px;
-      }
     }
   </style>
 </head>
 <body>
 
- <nav>
-  <ul>
-    <li><a href="LH%20Studio.html">Home</a></li>
-    <li><a href="Contact.html">Contact Us</a></li>
-    <li class="logo"><img src="images/Words%20LH%20Studio.png" alt="LH Studio Logo" /></li>
-  </ul>
-</nav>
-
+  <nav>
+    <ul>
+      <li><a href="LH%20Studio.html">Home</a></li>
+      <li><a href="Contact.html">Contact Us</a></li>
+      <li class="logo"><img src="images/Words%20LH%20Studio.png" alt="LH Studio Logo" /></li>
+    </ul>
+  </nav>
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Design 1 – Creative Process</h1>
+      <h1>Simpson College Esports - Roster Announcements 24/25</h1>
       <p>Insight into how this design was crafted and brought to life.</p>
     </div>
   </section>
 
   <main class="content-container">
     <section class="description">
-      <h2>Design 1 Process</h2>
-      <p>This design was inspired by contemporary minimalism, focusing on clean lines, vibrant contrasts, and strong visual hierarchy. The process involved iterative sketching, color testing, and digital refinement to achieve the final polished look that communicates clarity and impact.</p>
+      <h2>Beer Can Design</h2>
+      <p>This design was created for West Hill Brewing Company as part of a competitive branding project by Luke Haugen in Fall 2023. It was selected as one of the top three finalists, although it was ultimately not chosen for production. As a finalist, I had the opportunity to collaborate closely with the company’s brand director, exchanging feedback and refining the concept to its final form. While my design was not selected, the experience significantly strengthened my design
+        skills and deepened my understanding of professional creative collaboration.</p>
     </section>
 
-    <section class="design-gallery">
+    <div class="design-gallery-item">
+    <img src="images/Valorant%20A%20Team%20Roster%20(1).png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
       <div class="design-gallery-item">
-        <img src="images/Valorant%20A%20Team%20Roster%20(1).png" alt="Design 1 Main Image" id="mainImage" />
-      </div>
-      <div class="click-caption">Click the image to enlarge and view more</div>
-    </section>
+    <img src="images/Val%20B%20Team%20Roster%20Announcement%20(1).png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
+  <div class="design-gallery-item">
+    <img src="images/Smash%20Roster%20Anouncement%20(1).png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
+  <div class="design-gallery-item">
+    <img src="images/Rocket%20Leauge%20Roster%20Anouncement%20(1).png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
+  </div>
+</section>
+
+</section>
+
   </main>
 
   <footer>
-    LH Studio — All rights reserved
+    2025 LH Studio LLC
   </footer>
-
-  <!-- Modal -->
-  <div id="modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle" tabindex="-1">
-    <button class="modal-close" aria-label="Close modal">&times;</button>
-    <div class="modal-content">
-      <img src="images/Design1Main.jpg" alt="Design 1 Main Image" class="modal-main-image" id="modalMainImage" />
-      <div class="modal-description" id="modalDescription">This is the main view of Design 1 highlighting the core elements.</div>
-      <div class="modal-sidebar" id="modalSidebar">
-        <img src="images/Valorant%20A%20Team%20Roster%20(1).png" alt="Design 1 Main Image" class="selected" data-description="This is the main view of Design 1 highlighting the core elements." />
-        <img src="images/Val%20B%20Team%20Roster%20Announcement%20(1).png" alt="Design 1 Alternative 1" data-description="Alternate angle showcasing typography details." />
-        <img src="images/Rocket%20Leauge%20Roster%20Anouncement%20(1).png" alt="Design 1 Alternative 2" data-description="Close-up of the color scheme and texture." />
-        <img src="images/Smash%20Roster%20Anouncement%20(1).png" alt="Design 1 Alternative 2" data-description="Close-up of the color scheme and texture." />
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('modal');
-    const mainImage = document.getElementById('mainImage');
-    const modalMainImage = document.getElementById('modalMainImage');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalSidebar = document.getElementById('modalSidebar');
-    const modalClose = modal.querySelector('.modal-close');
-
-    mainImage.addEventListener('click', () => {
-      openModal(mainImage.src, mainImage.alt, "This is the main view of Design 1 highlighting the core elements.");
-    });
-
-    modalClose.addEventListener('click', closeModal);
-
-    modalSidebar.addEventListener('click', (e) => {
-      if (e.target.tagName === 'IMG') {
-        updateModalImage(e.target);
-      }
-    });
-
-    function openModal(src, alt, description) {
-      modal.classList.add('open');
-      modalMainImage.src = src;
-      modalMainImage.alt = alt;
-      modalDescription.textContent = description;
-
-      Array.from(modalSidebar.children).forEach(img => {
-        img.classList.toggle('selected', img.src === src);
-      });
-
-      modal.focus();
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function updateModalImage(imgElement) {
-      modalMainImage.src = imgElement.src;
-      modalMainImage.alt = imgElement.alt;
-      modalDescription.textContent = imgElement.getAttribute('data-description');
-
-      Array.from(modalSidebar.children).forEach(img => img.classList.remove('selected'));
-      imgElement.classList.add('selected');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) {
-        closeModal();
-      }
-    });
-  </script>
 
 </body>
 </html>

@@ -1,107 +1,84 @@
 /* Slideshow styles */
 .slideshow-container {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-color: white;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  overflow: hidden;
 }
 
 .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: white;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
 /* Navigation bar base styles */
-nav {
-    background-image: url('images/Top%20Banner%20No%20Cut%20Outs.jpg'); /* Update with correct path */
-    background-size: cover;
-    background-position: center;
-    background-color: #ccc; /* Optional fallback */
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+@media (max-width: 768px) {
+  /* Your other mobile styles... */
 
-/* Nav list and items for horizontal layout */
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;  /* Center the links */
-    align-items: center;
-    gap: 1.5rem;
-}
+  nav {
+    padding: 0.5rem 1rem;
+  }
 
-/* Nav list items */
-nav li {
-    display: flex;
-    align-items: center;
-}
-
-/* Logo alignment on desktop */
-nav li.logo {
-    margin-right: auto;  /* Push logo to left */
-    padding-left: 1rem;
-}
-
-/* Logo image size */
-.logo img {
-    height: 50px;
-    max-height: 100%;
-}
-
-/* Nav link styles */
-nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    background-color: white;       /* White background behind links */
-    padding: 6px 14px;             /* Some space around the text */
-    border-radius: 4px;            /* Rounded corners for a nicer look */
-    display: inline-block;         /* Make padding work nicely */
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #f0f0f0;     /* Slightly lighter on hover */
-    text-decoration: none;          /* Keep underline off on hover */
-}
-
-/* Responsive styles for mobile */
-@media (max-width: 600px) {
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
     gap: 0.5rem;
-    padding: 1rem;
   }
 
-  /* Logo on top, centered */
   nav li.logo {
-    margin-left: 0;
-    margin-right: 0;
-    order: -1; /* Move logo to top */
-    width: 100%;
-    text-align: center;
+    order: -1;
+    margin: 0;
+    align-self: center;
   }
 
-  /* Smaller logo on mobile */
+  nav li:not(.logo) {
+    margin: 0.25rem 0;
+  }
+
   .logo img {
-    max-width: 90vw;
-    height: auto;
-    height: 40px; /* Slightly smaller */
+    height: 40px;
+    display: block;
+    margin: 0 auto;
   }
 }
 
 
+/* Design gallery styles */
+.design-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
 
+.design-gallery-item {
+  max-width: 550px;
+  text-align: center;
+}
 
+.design-gallery-item img {
+  width: 100%;
+  height: auto;
+  border: 3px solid #970b0b;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.design-gallery-item p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.design-gallery-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}

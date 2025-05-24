@@ -122,7 +122,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1.5rem;
     }
     .design-gallery-item img {
       width: 100%;
@@ -131,108 +131,13 @@
       border: 3px solid #970b0b;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .design-gallery-item img:hover {
       transform: scale(1.03);
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
-    .click-caption {
-      font-size: 0.9rem;
-      color: #555;
-      font-style: italic;
-      user-select: none;
-      text-align: center;
-    }
-    #modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(255, 255, 255, 0.95);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
-      z-index: 5000;
-      overflow: hidden;
-    }
-    #modal.open {
-      display: flex;
-    }
-    .modal-content {
-      display: flex;
-      max-width: 90vw;
-      max-height: 90vh;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-      overflow: hidden;
-      outline: none;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      box-sizing: border-box;
-      position: relative;
-    }
-    .modal-main-image {
-      max-width: 900px;
-      max-height: 70vh;
-      object-fit: contain;  /* key: show entire image */
-      border-radius: 12px;
-      user-select: none;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-    .modal-description {
-      max-width: 900px;
-      font-size: 1rem;
-      color: #444;
-      text-align: center;
-      margin-bottom: 1rem;
-      user-select: none;
-      min-height: 3em;
-    }
-    .modal-sidebar {
-      width: 100%;
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding: 0.5rem 0;
-      box-sizing: border-box;
-      user-select: none;
-      justify-content: center;
-    }
-    .modal-sidebar img {
-      height: 70px;
-      cursor: pointer;
-      border-radius: 8px;
-      border: 3px solid transparent;
-      object-fit: cover;
-      transition: border-color 0.3s ease;
-      flex-shrink: 0;
-      width: auto;
-    }
-    .modal-sidebar img.selected {
-      border-color: #970b0b;
-    }
-    .modal-close {
-      position: absolute;
-      top: 20px; right: 30px;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #970b0b;
-      background: none;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-      z-index: 6000;
-      transition: color 0.3s ease;
-    }
-    .modal-close:hover {
-      color: #5a0404;
-    }
+
     footer {
       background-color: #D3D3D3;
       color: #000;
@@ -242,7 +147,6 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive nav for phone */
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
@@ -278,24 +182,6 @@
         max-width: 90vw;
         flex: 1 1 100%;
       }
-      .modal-content {
-        max-height: 80vh;
-        padding: 0.5rem;
-      }
-      .modal-main-image {
-        max-height: 50vh;
-        margin-bottom: 0.5rem;
-      }
-      .modal-description {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-      .modal-sidebar {
-        justify-content: flex-start;
-      }
-      .modal-sidebar img {
-        height: 60px;
-      }
     }
   </style>
 </head>
@@ -323,73 +209,25 @@
         skills and deepened my understanding of professional creative collaboration.</p>
     </section>
 
-    <section class="design-gallery">
+    <div class="design-gallery-item">
+    <img src="images/Lukes%20Beer%20Label.jpg" alt="Side view" />
+    <p>Alternate angle showing side details</p>
       <div class="design-gallery-item">
-        <img
-          src="images/Lukes%20Beer%20Label.jpg"
-          alt="Design 1 Main Image"
-          id="mainImage"
-          style="cursor:pointer"
-          onclick="openPhoto(this.src, 1200, 900)" />
-        <div class="click-caption">Click image to view full size</div>
-      </div>
-    </section>
+    <img src="images/Beer%20Logo%20Gold.png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
+  <div class="design-gallery-item">
+    <img src="images/Early%20Design%20Concept-01.png" alt="Side view" />
+    <p>Alternate angle showing side details</p>
+  </div>
+</section>
+
+</section>
+
   </main>
 
   <footer>
-    © 2024 Luke Haugen. All rights reserved.
+    2025 LH Studio LLC
   </footer>
-
-  <script>
-    // Open the photo in a new window sized to fit screen without cropping
-    function openPhoto(url, width, height) {
-      const maxWidth = window.innerWidth * 0.9;
-      const maxHeight = window.innerHeight * 0.9;
-
-      let finalWidth = width;
-      let finalHeight = height;
-
-      if (width > maxWidth) {
-        finalWidth = maxWidth;
-        finalHeight = (height / width) * maxWidth;
-      }
-
-      if (finalHeight > maxHeight) {
-        finalHeight = maxHeight;
-        finalWidth = (width / height) * maxHeight;
-      }
-
-      const features = `width=${finalWidth},height=${finalHeight},scrollbars=yes,resizable=yes`;
-
-      const newWin = window.open('', '_blank', features);
-
-      newWin.document.write(`
-        <html>
-          <head>
-            <title>View Photo</title>
-            <style>
-              body, html {
-                margin: 0; padding: 0; height: 100%;
-                display: flex; justify-content: center; align-items: center;
-                background: #000;
-              }
-              img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-                display: block;
-              }
-            </style>
-          </head>
-          <body>
-            <img src="${url}" alt="Photo" />
-          </body>
-        </html>
-      `);
-
-      newWin.document.close();
-    }
-  </script>
 
 </body>
 </html>
